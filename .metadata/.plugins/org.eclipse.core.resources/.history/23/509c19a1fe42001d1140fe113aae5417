@@ -1,0 +1,5 @@
+package com.note.springboot.dao;
+
+public interface NoteRepository {
+
+}

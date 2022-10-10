@@ -1,0 +1,21 @@
+package com.note.springboot.entity;
+
+import org.springframework.data.neo4j.core.schema.GeneratedValue;
+import org.springframework.data.neo4j.core.schema.Id;
+import org.springframework.data.neo4j.core.schema.Node;
+import org.springframework.data.neo4j.core.schema.Property;
+
+@Node("Note")
+public class Note {
+	
+	@Id @GeneratedValue
+	private Long noteId;
+	
+	@Property("title")
+	private String title;
+	
+	@Property("description")
+	private String description;
+	
+
+}

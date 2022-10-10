@@ -1,0 +1,58 @@
+package com.note.springboot.entity;
+
+import org.springframework.data.neo4j.core.schema.GeneratedValue;
+import org.springframework.data.neo4j.core.schema.Id;
+import org.springframework.data.neo4j.core.schema.Node;
+import org.springframework.data.neo4j.core.schema.Property;
+
+@Node("Note")
+public class Note {
+	
+	@Id @GeneratedValue
+	private Long noteId;
+	
+	@Property("title")
+	private String title;
+	
+	@Property("description")
+	private String description;
+
+	public Note() {
+
+	}
+
+	public Note(Long noteId, String title, String description) {
+		super();
+		this.noteId = noteId;
+		this.title = title;
+		this.description = description;
+	}
+
+	public Long getNoteId() {
+		return noteId;
+	}
+
+	public void setNoteId(Long noteId) {
+		this.noteId = noteId;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	
+	
+	
+}

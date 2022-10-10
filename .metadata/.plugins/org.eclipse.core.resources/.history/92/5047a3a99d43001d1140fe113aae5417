@@ -1,0 +1,73 @@
+package com.note.springboot.entity;
+
+import java.util.Date;
+
+import org.springframework.data.neo4j.core.schema.GeneratedValue;
+import org.springframework.data.neo4j.core.schema.Id;
+import org.springframework.data.neo4j.core.schema.Node;
+import org.springframework.data.neo4j.core.schema.Property;
+
+@Node("Note")
+public class Note {
+	
+	@Id
+	@GeneratedValue
+	private Long Id;
+	
+	@Property("title")
+	private String title;
+	
+	@Property("description")
+	private String description;
+	
+	@Property("last_Updated_Date")
+	private Date lastUpdated=new Date();
+	
+
+	public Note() {
+		this.Id=(long) 0;
+		title="null";
+		description="Not Exist";
+	}
+
+	public Note(long id, String title, String description,Date lastUpdated) {
+		Id = id;
+		this.title = title;
+		this.description = description;
+		this.lastUpdated = lastUpdated;
+	}
+
+	public Date getLastUpdated() {
+		return lastUpdated;
+	}
+
+	public void setLastUpdated(Date lastUpdated) {
+		this.lastUpdated = lastUpdated;
+	}
+
+	public long getId() {
+		return Id;
+	}
+
+	public void setId(long id) {
+		Id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	
+}

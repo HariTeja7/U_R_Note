@@ -1,0 +1,88 @@
+package com.note.springboot.entity;
+
+import java.util.Date;
+
+import org.springframework.data.neo4j.core.schema.GeneratedValue;
+import org.springframework.data.neo4j.core.schema.Id;
+import org.springframework.data.neo4j.core.schema.Node;
+import org.springframework.data.neo4j.core.schema.Property;
+
+@Node("Note")
+public class Note {
+	
+	@Id
+	@Property("title")
+	private String title;
+	
+	@Property("description")
+	private String description;
+	
+	@Property("last_updated_Date")
+	private Date lastUpdatedDate=new Date();
+	
+	@Property("last_updated_day")
+	private String day;
+	
+
+	public Note() {
+		title="";
+		description="";
+	}
+
+	public Note(Long id, String title, String description, Date lastUpdatedDate, String day) {
+		super();
+		Id = id;
+		this.title = title;
+		this.description = description;
+		this.lastUpdatedDate = lastUpdatedDate;
+		this.day = day;
+	}
+
+	
+
+	public Date getLastUpdatedDate() {
+		return lastUpdatedDate;
+	}
+
+	public void setLastUpdatedDate(Date lastUpdatedDate) {
+		this.lastUpdatedDate = lastUpdatedDate;
+	}
+
+	public String getDay() {
+		return day;
+	}
+
+	public void setDay(String day) {
+		this.day = day;
+	}
+
+	public void setId(Long id) {
+		Id = id;
+	}
+
+	public long getId() {
+		return Id;
+	}
+
+	public void setId(long id) {
+		Id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	
+}

@@ -1,0 +1,9 @@
+package com.note.springboot.dao;
+
+import org.springframework.data.neo4j.repository.ReactiveNeo4jRepository;
+
+import com.note.springboot.entity.Note;
+
+public interface NoteRepository extends ReactiveNeo4jRepository<Note,Long>{
+
+}

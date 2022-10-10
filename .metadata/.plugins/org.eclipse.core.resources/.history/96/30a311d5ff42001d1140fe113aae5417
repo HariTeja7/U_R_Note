@@ -1,0 +1,36 @@
+package com.note.springboot.controller;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.note.springboot.dao.NoteRepository;
+import com.note.springboot.entity.Note;
+
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
+@RestController
+@RequestMapping("/notes")
+public class NoteController {
+
+	@Autowired
+	private NoteRepository noteRepository;
+	
+	@PutMapping
+	Mono<Note> createOrUpdateNote(@RequestBody Note note){
+		return noteRepository.save(note);
+	}
+	
+	@GetMapping(value = { "", "/" }, produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+	Flux<Note> getNotes(){
+		return noteRepository.findAll();
+	}
+	
+	
+}
